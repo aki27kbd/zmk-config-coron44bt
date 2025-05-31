@@ -1,0 +1,8 @@
+file_format: "1"
+id: coron44bt
+name: coron44bt
+type: shield
+url: https://github.com/aki27kbd/zmk-config-coron44bt
+requires: [seeeduino_xiao_ble]
+features:
+  - keys

@@ -1,0 +1,6 @@
+if SHIELD_CORON44BT
+
+config ZMK_KEYBOARD_NAME
+    default "coron44bt"
+
+endif
