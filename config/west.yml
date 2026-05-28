@@ -28,6 +28,6 @@ manifest:
       revision: main
     - name: prospector-zmk-module
       remote: t-ogura
-      revision: v2.2.1
+      revision: v2.2.0
   self:
     path: config
