@@ -1,0 +1,30 @@
+mainmenu "coron44bt US-JIS HID simulation"
+source "Kconfig.zephyr"
+
+config ZMK_LOG_LEVEL
+    int
+    default 0
+
+config ZMK_OSKEY_STATE
+    bool
+    default y
+
+config ZMK_HID_REPORT_TYPE_HKRO
+    bool
+    default y
+
+config ZMK_HID_KEYBOARD_REPORT_SIZE
+    int
+    default 6
+
+config ZMK_HID_CONSUMER_REPORT_SIZE
+    int
+    default 6
+
+config ZMK_HID_CONSUMER_REPORT_USAGES_FULL
+    bool
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    int
+    default 0

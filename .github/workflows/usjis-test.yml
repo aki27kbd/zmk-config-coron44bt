@@ -1,0 +1,51 @@
+name: Test Windows JIS symbol translation
+on:
+  push:
+    branches: [codex/windows-jis-us-symbols]
+  workflow_dispatch:
+
+jobs:
+  hid-simulation:
+    runs-on: ubuntu-latest
+    container: zmkfirmware/zmk-build-arm:stable
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+        with:
+          repository: cormoran/zmk
+          ref: 1fc72aaff7a42bd533c1f4c9b3f23c5317c745f4
+          path: work/native/zmk
+      - uses: actions/checkout@v6
+        with:
+          repository: mentaldesk/oskey
+          ref: 78658510090f60a63cbaf551145c66ad722d2980
+          path: work/native/oskey
+      - name: Fetch the firmware's Zephyr version
+        working-directory: work/native
+        run: |
+          west init -l zmk/app
+          west update --narrow -o=--depth=1 zephyr
+          west zephyr-export
+      - name: Build against the firmware's HID implementation
+        env:
+          ZEPHYR_TOOLCHAIN_VARIANT: host
+        run: |
+          cmake -GNinja -S tests/usjis -B work/usjis-test \
+            -DBOARD=native_sim/native/64 \
+            -DZMK_SOURCE_DIR="$GITHUB_WORKSPACE/work/native/zmk" \
+            -DOSKEY_SOURCE_DIR="$GITHUB_WORKSPACE/work/native/oskey" \
+            -DZEPHYR_MODULES="$GITHUB_WORKSPACE"
+          cmake --build work/usjis-test
+      - name: Run HID report regressions
+        shell: bash
+        run: |
+          set -o pipefail
+          timeout 30s work/usjis-test/zephyr/zephyr.exe | tee work/usjis-reports.log
+          grep -q '^USJIS_SIMULATION_PASS' work/usjis-reports.log
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: usjis-hid-simulation
+          path: |
+            work/usjis-reports.log
+            work/usjis-test/zephyr/.config

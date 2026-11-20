@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: MIT
+
+menu "coron44bt US symbols on a Windows JIS host"
+
+config ZMK_USJIS
+    bool "Translate US symbols for Windows JIS hosts"
+    depends on ZMK_OSKEY_STATE
+    help
+      Translate keyboard-page usages only when oskey selects Windows.
+      macOS and Linux use the original US layout. No host setting changes.
+
+if ZMK_USJIS
+
+config ZMK_USJIS_DEFAULT_ENABLED
+    bool "Enable translation unless a saved mode overrides it"
+    default y
+
+config ZMK_USJIS_MAX_ENTRIES
+    int "Maximum held key records"
+    range 44 256
+    default 82
+
+config ZMK_USJIS_LAYER_MASK
+    hex "Layers on which translation applies (zero means all layers)"
+    default 0
+
+config ZMK_USJIS_SETTINGS_SAVE_DELAY_MS
+    int "Mode setting save debounce in milliseconds"
+    default 2000
+
+config ZMK_USJIS_LOG_LEVEL
+    int "Translation log level"
+    range 0 4
+    default 1
+
+endif
+endmenu
