@@ -33,19 +33,22 @@ a modifier still releases the same modifier.
 
 ## Trackball configuration
 
-The cormoran PMW3610 driver reports raw movement; the runtime input processors
-perform rotation, speed scaling, automouse and scroll conversion. The legacy
+The modern PMW3610 driver calibrates complete X/Y vectors by -30 degrees;
+the runtime input processors perform speed scaling, automouse and scroll conversion. The legacy
 driver's scroll conversion and fixed smoothing are removed from this build.
 
 - Sensor CPI: 1000.
-- Pointer: 330-degree rotation, X inverted, speed multiplier 1/2.
+- Pointer: X inverted, speed multiplier 1/2. Runtime rotation stays at 0.
 - Automouse: layer 4, 50 ms activation, 700 ms deactivation.
-- Scroll: layer 5, 330-degree rotation, multiplier 1/32; fractional movement is
+- Scroll: layer 5, runtime rotation 0, multiplier 1/32; fractional movement is
   retained instead of discarded after each scroll step.
 - Minimum sensor report interval: 12 ms, with movement accumulated between
   reports. The sensor uses the driver's power-saving defaults when inactive.
 - Paired X/Y events include the zero-valued axis, so the rotation processor
   receives both coordinates during a purely horizontal or vertical movement.
+- Sensor calibration carries fractional movement between frames and is tested
+  for first-frame output, zero rotation, small X/Y steps and direction reversal.
+  Leave both browser Rotation fields at 0: the sensor has already been calibrated.
 - Inertia is available but initially disabled; enable it on the `scroll`
   processor after checking the basic direction and speed.
 
@@ -70,6 +73,22 @@ are explicitly selected in the build configuration.
 Saved Studio keymaps override compiled bindings. Preserve your current layout
 before choosing `Restore Stock Settings` to load these new shortcut bindings.
 No settings reset or firmware installation is performed by the build itself.
+
+To preserve the rest of a saved layout, change only these six positions in
+official ZMK Studio after flashing instead of resetting the entire keymap:
+
+| Layer | Physical position | Behavior |
+| --- | --- | --- |
+| 0 | Bottom row, second key from left | `HOST_COMMAND` |
+| 1 | Second row, first key from left | `HOST_EISU` |
+| 1 | Second row, second key from left | `HOST_SCREENSHOT` |
+| 1 | Second row, third key from left | `HOST_COMMAND` |
+| 1 | Second row, fifth key from left | `HOST_SEARCH` |
+| 2 | Second row, first key from left | `HOST_KANA` |
+
+Click Save after changing these bindings. Optional manual OS selection keys
+can also be assigned on layer 3 using the OS Selector behavior, with Windows=0,
+Mac=1 and Linux=2.
 
 Both Windows and Mac hardware validation are required after installation; a
 successful build alone does not prove OS classification or trackball direction
