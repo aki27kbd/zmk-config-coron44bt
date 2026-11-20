@@ -81,14 +81,14 @@
             compatible = "zmk,behavior-os-key";
             label = "HOST_EISU";
             #binding-cells = <0>;
-            bindings = <&kp LC(SPACE)>, <&kp LANGUAGE_2>, <&kp LC(SPACE)>;
+            bindings = <&kp LANGUAGE_2>, <&kp LANGUAGE_2>, <&kp LC(SPACE)>;
         };
 
         host_kana: host_kana {
             compatible = "zmk,behavior-os-key";
             label = "HOST_KANA";
             #binding-cells = <0>;
-            bindings = <&kp LC(SPACE)>, <&kp LANGUAGE_1>, <&kp LC(SPACE)>;
+            bindings = <&kp LANGUAGE_1>, <&kp LANGUAGE_1>, <&kp LC(SPACE)>;
         };
 
         lt_to_layer_0: lt_to_layer_0 {
