@@ -55,8 +55,8 @@ the extended settings.
 ## Versions and installation
 
 Every west dependency is pinned in `config/west.yml`. The ZMK base is
-`cormoran/zmk` revision `35bb5dafecd5931c432c74e1b630cf12097671e4`
-(`v0.3+custom-studio-protocol`), matching the oskey v0.3.0 branch. The
+`cormoran/zmk` revision `1fc72aaff7a42bd533c1f4c9b3f23c5317c745f4`
+(`main+custom-studio-protocol`, Zephyr 4.1), matching the oskey main branch. The
 runtime input processor includes the September 2026 inertia update.
 
 Build this branch using GitHub Actions and install

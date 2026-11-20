@@ -7,4 +7,4 @@ on:
 
 jobs:
   build:
-    uses: cormoran/zmk/.github/workflows/build-user-config.yml@35bb5dafecd5931c432c74e1b630cf12097671e4
+    uses: cormoran/zmk/.github/workflows/build-user-config.yml@1fc72aaff7a42bd533c1f4c9b3f23c5317c745f4

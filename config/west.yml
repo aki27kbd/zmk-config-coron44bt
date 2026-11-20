@@ -7,7 +7,7 @@ manifest:
   projects:
     - name: zmk
       remote: cormoran
-      revision: 35bb5dafecd5931c432c74e1b630cf12097671e4 # v0.3+custom-studio-protocol
+      revision: 1fc72aaff7a42bd533c1f4c9b3f23c5317c745f4 # main+custom-studio-protocol, Zephyr 4.1
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: cormoran
@@ -23,6 +23,6 @@ manifest:
       revision: 3052679f645b8fc1997275c2eaa6b86bdd55ca01
     - name: oskey
       remote: mentaldesk
-      revision: 503b24377f1279803e3f53255b796bfe91f4b0da # v0.3.0
+      revision: 78658510090f60a63cbaf551145c66ad722d2980 # main, Zephyr 4.1
   self:
     path: config
