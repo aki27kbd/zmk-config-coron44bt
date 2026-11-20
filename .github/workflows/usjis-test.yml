@@ -21,9 +21,9 @@ jobs:
           ref: 78658510090f60a63cbaf551145c66ad722d2980
           path: work/native/oskey
       - name: Fetch the firmware's Zephyr version
-        working-directory: work/native
+        working-directory: work/native/zmk
         run: |
-          west init -l zmk/app
+          west init -l app
           west update --narrow -o=--depth=1 zephyr
           west zephyr-export
       - name: Build against the firmware's HID implementation
