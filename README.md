@@ -9,7 +9,11 @@ and key assignments are retained from upstream `main`.
 ## Pinned dependencies
 
 - ZMK v0.3.0: `edf5c0814fd3ea202e43aad2d68fd32e882a518c`
-- PMW3610 driver: `941441d9faf199cd97c96f7ef163bc2d746e052d`
+- PMW3610 driver: `7b43dfb9a4c9b37a5351a2111c3d0274da436957`
+
+The driver revision removes a duplicate automouse check that read the movement
+values before initialization. The existing check after motion processing is
+retained. Driver branch: `codex/fix-automouse-initialization`.
 
 The workflow uses the same ZMK revision as the firmware source. The coron44bt
 build also explicitly sets `CONFIG_ZMK_STUDIO=y` and
