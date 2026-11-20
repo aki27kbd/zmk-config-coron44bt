@@ -10,8 +10,10 @@ and runtime trackball configuration. The previous firmware is retained on
 - The Command-position key sends Command on macOS and Ctrl on Windows/Linux.
 - Layer 1 screenshot sends Cmd+Shift+4 on macOS and Win+Shift+S on Windows.
 - Layer 1 search sends Cmd+Space on macOS and Win+S on Windows.
-- Layer 1, second row, far left remains `LANGUAGE_2`.
-- Layer 2, second row, far left remains `LANGUAGE_1`.
+- Layer 1, second row, far left sends `LANGUAGE_2` on Mac (`HOST_EISU`).
+- Layer 2, second row, far left sends `LANGUAGE_1` on Mac (`HOST_KANA`).
+- On Windows these two positions retain Ctrl+Space, matching the actual
+  saved keyboard layout read before this update.
 
 Layers keep their original numbering. This build changes individual shortcuts
 per OS instead of duplicating every layer. Additional per-OS behaviors can be
@@ -42,6 +44,8 @@ driver's scroll conversion and fixed smoothing are removed from this build.
   retained instead of discarded after each scroll step.
 - Minimum sensor report interval: 12 ms, with movement accumulated between
   reports. The sensor uses the driver's power-saving defaults when inactive.
+- Paired X/Y events include the zero-valued axis, so the rotation processor
+  receives both coordinates during a purely horizontal or vertical movement.
 - Inertia is available but initially disabled; enable it on the `scroll`
   processor after checking the basic direction and speed.
 
