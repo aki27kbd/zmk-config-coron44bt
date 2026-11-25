@@ -106,7 +106,9 @@
             #binding-cells = <0>;
             bindings = <&mt LEFT_SHIFT Z>, <&kp LS(Z)>;
 
-            tapping-term-ms = <120>;
+            // Give the second tap more time to arrive; this setting applies
+            // only to Z_SHIFT, leaving other tap-dances and mod-taps alone.
+            tapping-term-ms = <200>;
         };
     };
 
