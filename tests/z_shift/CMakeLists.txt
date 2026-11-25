@@ -10,8 +10,8 @@ project(coron44bt_z_shift_simulation)
 target_include_directories(app PRIVATE ${ZMK_SOURCE_DIR}/app/include ${OSKEY_SOURCE_DIR}/include)
 zephyr_linker_sources(RODATA
   ${ZMK_SOURCE_DIR}/app/include/linker/zmk-events.ld
-  ${CMAKE_CURRENT_SOURCE_DIR}/behaviors.ld
 )
+zephyr_linker_sources(SECTIONS ${CMAKE_CURRENT_SOURCE_DIR}/behaviors.ld)
 target_sources(app PRIVATE
   src/main.c
   src/keymap.c
