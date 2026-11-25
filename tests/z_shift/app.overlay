@@ -1,5 +1,15 @@
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/matrix_transform.h>
 / {
+    chosen {
+        zmk,matrix-transform = &test_transform;
+    };
+    test_transform: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        rows = <1>;
+        columns = <7>;
+        map = <RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6)>;
+    };
     behaviors {
         kp: key_press {
             compatible = "zmk,behavior-key-press";
