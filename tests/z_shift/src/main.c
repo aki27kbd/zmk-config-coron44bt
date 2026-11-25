@@ -33,7 +33,7 @@ int zmk_endpoint_send_report(uint16_t page) {
     printf("REPORT %s %u mods=%02x keys=", scenario, reports, r->body.modifiers);
     for (int i=0;i<6;i++) { if(r->body.keys[i]) printf("%02x,",r->body.keys[i]); }
     printf("\n");
-    exit(0);
+    return 0;
 }
 
 static void expect(unsigned index, uint8_t mods, uint8_t key) {
@@ -132,5 +132,5 @@ int main(void) {
 
     k_msleep(220); CHECK(reports == 2); idle();
     printf("Z_SHIFT_HID_PASS scenarios=%u assertions=%u reports=%u\n",scenarios,assertions,total_reports);
-    return 0;
+    exit(0);
 }
