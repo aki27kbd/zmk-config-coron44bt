@@ -54,3 +54,5 @@ jobs:
           path: |
             work/z-shift-reports.log
             work/z-shift-test/zephyr/.config
+            work/z-shift-test/zephyr/linker_zephyr_pre0.cmd
+            work/z-shift-test/zephyr/zephyr.dts

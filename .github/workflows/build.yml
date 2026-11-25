@@ -4,6 +4,13 @@ on:
   push:
     paths:
       - "config/**"
+      - "src/**"
+      - "dts/**"
+      - "CMakeLists.txt"
+      - "Kconfig"
+      - "zephyr/**"
+      - "build.yaml"
+      - ".github/workflows/build.yml"
 
 jobs:
   build:
