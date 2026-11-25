@@ -20,7 +20,7 @@
 include:
  - board: xiao_ble//zmk
    shield: coron44bt
-   artifact-name: coron44bt-z-timing-debounce
+   artifact-name: coron44bt-responsive-z-shift
    snippet: studio-rpc-usb-uart
    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
  - board: xiao_ble//zmk

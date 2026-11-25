@@ -1,5 +1,9 @@
 # SPDX-License-Identifier: MIT
 
+config CORON44BT_Z_SHIFT
+    bool
+    default y if DT_HAS_CORON44BT_Z_SHIFT_ENABLED
+
 menu "coron44bt US symbols on a Windows JIS host"
 
 config ZMK_USJIS

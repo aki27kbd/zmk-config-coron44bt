@@ -1,0 +1,5 @@
+rsource "../usjis/Kconfig"
+
+config ZMK_BEHAVIOR_METADATA
+    bool
+    default y

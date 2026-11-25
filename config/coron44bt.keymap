@@ -101,14 +101,12 @@
         };
 
         z_shift: z_shift {
-            compatible = "zmk,behavior-tap-dance";
+            compatible = "coron44bt,z-shift";
             label = "Z_SHIFT";
             #binding-cells = <0>;
-            bindings = <&mt LEFT_SHIFT Z>, <&kp LS(Z)>;
-
-            // Give the second tap more time to arrive; this setting applies
-            // only to Z_SHIFT, leaving other tap-dances and mod-taps alone.
-            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_SHIFT>, <&kp Z>, <&kp LS(Z)>;
+            hold-term-ms = <180>;
+            double-tap-ms = <200>;
         };
     };
 

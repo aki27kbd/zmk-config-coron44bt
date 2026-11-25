@@ -1,0 +1,24 @@
+#include <dt-bindings/zmk/keys.h>
+/ {
+    behaviors {
+        kp: key_press {
+            compatible = "zmk,behavior-key-press";
+            label = "TEST_KP";
+            #binding-cells = <1>;
+        };
+        z_shift: z_shift {
+            compatible = "coron44bt,z-shift";
+            label = "Z_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT>, <&kp Z>, <&kp LS(Z)>;
+            hold-term-ms = <180>;
+            double-tap-ms = <200>;
+        };
+    };
+    keymap {
+        compatible = "zmk,keymap";
+        base {
+            bindings = <&z_shift &kp S &kp U &kp M &kp MINUS &kp RSHFT &kp N2>;
+        };
+    };
+};

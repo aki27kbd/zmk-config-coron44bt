@@ -1,0 +1,17 @@
+description: Immediate Shift on another key, with independent single/double Z taps
+compatible: "coron44bt,z-shift"
+include: zero_param.yaml
+
+properties:
+  bindings:
+    type: phandle-array
+    required: true
+    description: Shift hold, lowercase tap, uppercase double tap (in that order)
+  hold-term-ms:
+    type: int
+    default: 180
+    description: Hold timeout when no other key is pressed
+  double-tap-ms:
+    type: int
+    default: 200
+    description: Time from first release to second press
